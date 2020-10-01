@@ -42,7 +42,7 @@ if(NOT ccsds_sources)
 endif(NOT ccsds_sources)
 
 add_library(gnuradio-ccsds SHARED ${ccsds_sources})
-target_link_libraries(gnuradio-ccsds ${Boost_LIBRARIES} ${GNURADIO_ALL_LIBRARIES})
+target_link_libraries(gnuradio-ccsds ${Boost_LIBRARIES} gnuradio::gnuradio-runtime gnuradio::gnuradio-blocks Volk::volk)
 set_target_properties(gnuradio-ccsds PROPERTIES DEFINE_SYMBOL "gnuradio_ccsds_EXPORTS")
 
 if(APPLE)
@@ -65,21 +65,21 @@ install(TARGETS gnuradio-ccsds
 ########################################################################
 include(GrTest)
 
-include_directories(${CPPUNIT_INCLUDE_DIRS})
+#include_directories(${CPPUNIT_INCLUDE_DIRS})
 
-list(APPEND test_ccsds_sources
-    ${CMAKE_CURRENT_SOURCE_DIR}/test_ccsds.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/qa_ccsds.cc
-)
+# list(APPEND test_ccsds_sources
+#     ${CMAKE_CURRENT_SOURCE_DIR}/test_ccsds.cc
+#     ${CMAKE_CURRENT_SOURCE_DIR}/qa_ccsds.cc
+# )
 
-add_executable(test-ccsds ${test_ccsds_sources})
+# add_executable(test-ccsds ${test_ccsds_sources})
 
-target_link_libraries(
-  test-ccsds
-  ${GNURADIO_RUNTIME_LIBRARIES}
-  ${Boost_LIBRARIES}
-  ${CPPUNIT_LIBRARIES}
-  gnuradio-ccsds
-)
+# target_link_libraries(
+#   test-ccsds
+#   ${GNURADIO_RUNTIME_LIBRARIES}
+#   ${Boost_LIBRARIES}
+#   ${CPPUNIT_LIBRARIES}
+#   gnuradio-ccsds
+# )
 
-GR_ADD_TEST(test_ccsds test-ccsds)
+# GR_ADD_TEST(test_ccsds test-ccsds)
