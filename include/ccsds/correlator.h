@@ -60,10 +60,10 @@ namespace gr {
     };
 
     enum state_t { SEARCH, LOCK };
-    const char* state_names[] = { "SEARCH", "LOCK" };
+    const char* state_names[2] = { "SEARCH", "LOCK" };
 
     enum ambiguity_t { NONE, INVERTED };
-    const char* ambiguity_names[] = { "NONE", "INVERTED" };
+    const char* ambiguity_names[2] = { "NONE", "INVERTED" };
 
   } // namespace ccsds
 } // namespace gr

@@ -42,7 +42,7 @@ if(NOT ccsds_sources)
 endif(NOT ccsds_sources)
 
 add_library(gnuradio-ccsds SHARED ${ccsds_sources})
-target_link_libraries(gnuradio-ccsds ${Boost_LIBRARIES} gnuradio::gnuradio-runtime gnuradio::gnuradio-blocks Volk::volk)
+target_link_libraries(gnuradio-ccsds ${Boost_LIBRARIES} gnuradio::gnuradio-runtime gnuradio::gnuradio-blocks gnuradio::gnuradio-pmt Volk::volk)
 set_target_properties(gnuradio-ccsds PROPERTIES DEFINE_SYMBOL "gnuradio_ccsds_EXPORTS")
 
 if(APPLE)

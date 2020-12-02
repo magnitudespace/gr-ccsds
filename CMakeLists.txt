@@ -100,6 +100,8 @@ if(APPLE)
     endif(NOT CMAKE_BUILD_WITH_INSTALL_RPATH)
 endif(APPLE)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
 ########################################################################
 # Find gnuradio build dependencies
 ########################################################################
@@ -110,7 +112,7 @@ endif(APPLE)
 # components required to the list of GR_REQUIRED_COMPONENTS (in all
 # caps such as FILTER or FFT) and change the version to the minimum
 # API compatible version required.
-find_package(Gnuradio "3.8.2" REQUIRED COMPONENTS runtime blocks)
+find_package(Gnuradio "3.8.2" REQUIRED COMPONENTS runtime blocks pmt)
 
 # if(NOT CPPUNIT_FOUND)
 #     message(FATAL_ERROR "CppUnit required to compile ccsds")
